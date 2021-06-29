@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $.Values.metadata.name }}-config
+  namespace: {{ $.Values.metadata.namespace }}
+data:
+  NAME: "{{ $.Values.name }}"
