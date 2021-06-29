@@ -15,7 +15,7 @@ fullnameOverride: ""
 
 metadata:
   name: internal-node-app
-  namespace: nginx-ingress-controller
+  namespace: apps
   
 cm: internal-app
 
@@ -74,5 +74,5 @@ affinity: {}
 
 storage:
   app:
-    storageclassname: fabricclient-disksc
+    storageclassname: disksc
     storagesize: 1Gi
