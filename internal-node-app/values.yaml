@@ -15,7 +15,7 @@ fullnameOverride: ""
 
 metadata:
   name: internal-node-app
-  namespace: fabricclient
+  namespace: nginx-ingress-controller
   
 cm: internal-app
 
