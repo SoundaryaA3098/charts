@@ -4,16 +4,30 @@ metadata:
   name: {{ $.Values.metadata.name }}
   namespace: {{ $.Values.metadata.namespace }}
   labels:
-    {{- include "internal-node-app.labels" . | nindent 4 }}
+    name: {{ $.Values.metadata.name }}
+    app.kubernetes.io/name: {{ $.Values.metadata.name }}
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.kubernetes.io/instance: {{ $.Values.metadata.name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "internal-node-app.selectorLabels" . | nindent 6 }}
+      app: {{ $.Values.metadata.name }}
+      app.kubernetes.io/name: {{ $.Values.metadata.name }}
+      helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+      app.kubernetes.io/managed-by: {{ .Release.Service }}
+      app.kubernetes.io/instance: {{ $.Values.metadata.name }}
+#      {{- include "internal-node-app.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "internal-node-app.labels" . | nindent 8 }}
+        app: {{ $.Values.metadata.name }}
+        app.kubernetes.io/name: {{ $.Values.metadata.name }}
+        helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+        app.kubernetes.io/managed-by: {{ .Release.Service }}
+        app.kubernetes.io/instance: {{ $.Values.metadata.name }}
+#        {{- include "internal-node-app.labels" . | nindent 8 }}
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
