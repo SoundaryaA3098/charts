@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: intainregistry/wsfs-production-limaone-external-app:0.2-rc02
+  repository: intainregistry/wsfs-production-limaone-external-app:0.2-rc03
   pullPolicy: IfNotPresent
 imagePullSecrets:
 - name: regcred
