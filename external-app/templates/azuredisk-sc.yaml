@@ -1,0 +1,11 @@
+allowVolumeExpansion: true
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: fabricclient-disksc
+parameters:
+  kind: Managed
+  storageaccounttype: Standard_LRS
+provisioner: kubernetes.io/azure-disk
+reclaimPolicy: Retain
+volumeBindingMode: Immediate
