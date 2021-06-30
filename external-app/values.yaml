@@ -65,3 +65,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+storage:
+  app:
+    storageclassname: fabricclient-disksc
+    storagesize: 1Gi
