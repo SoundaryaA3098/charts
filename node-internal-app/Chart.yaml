@@ -1,6 +1,0 @@
-apiVersion: v2
-appVersion: 1.0.2
-description: A Helm chart for internal node app
-name: node-internal-app
-type: application
-version: 0.1.0
